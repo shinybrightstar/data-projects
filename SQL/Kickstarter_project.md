@@ -20,5 +20,3 @@
 ORDER BY main_category, pct_pledged DESC
    LIMIT 10;
    ```
-
-## NEXT: Customers and Products Analysis Using SQL 
