@@ -1,0 +1,39 @@
+---
+layout: default
+---
+<article class="project-detail">
+  <a href="{{ '/projects/' | relative_url }}" class="back-link">&larr; all projects</a>
+
+  <header class="project-detail__header">
+    <p class="eyebrow">project</p>
+    <h1>{{ page.title }}</h1>
+    {% if page.tagline %}<p class="project-detail__tagline">{{ page.tagline }}</p>{% endif %}
+  </header>
+
+  {% if page.flow %}
+  <div class="flow-marker">
+    {% assign steps = page.flow | split: "->" %}
+    {% for step in steps %}
+      <span class="flow-step">{{ step | strip }}</span>
+      {% unless forloop.last %}<span class="flow-arrow">&rarr;</span>{% endunless %}
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if page.stack %}
+  <ul class="tag-list">
+    {% for tool in page.stack %}<li class="tag">{{ tool }}</li>{% endfor %}
+  </ul>
+  {% endif %}
+
+  {% if page.repo or page.demo %}
+  <div class="project-links">
+    {% if page.repo %}<a href="{{ page.repo }}" target="_blank" rel="noopener">View repo &#8599;</a>{% endif %}
+    {% if page.demo %}<a href="{{ page.demo }}" target="_blank" rel="noopener">Live demo &#8599;</a>{% endif %}
+  </div>
+  {% endif %}
+
+  <div class="project-detail__body">
+    {{ content }}
+  </div>
+</article>

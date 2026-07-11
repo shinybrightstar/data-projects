@@ -1,0 +1,31 @@
+title: Judith | Data Engineering Portfolio
+description: "Support specialist turned data engineer — SQL, pipelines, and warehouses built from scratch."
+baseurl: "" # leave blank for user page (username.github.io), or "/repo-name" for project page
+url: ""     # e.g. https://shinybrightstar.github.io
+
+# Jekyll settings
+markdown: kramdown
+permalink: pretty
+plugins:
+  - jekyll-feed
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
